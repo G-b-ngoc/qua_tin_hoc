@@ -2,7 +2,7 @@
    CẤU HÌNH GIAO DIỆN MÀU ĐỎ TRẦM (BURGUNDY)
    ========================================== */
 :root {
-    --bg-dark: #1a0307;
+    --bg-dark: #2f0a10;
     --bg-gradient: radial-gradient(circle at center, #4a0d18 0%, #200409 60%, #0d0104 100%);
     --card-bg: rgba(45, 10, 18, 0.75);
     --gold-primary: #d4af37;
@@ -62,6 +62,12 @@ body {
     text-align: center;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), var(--shadow-gold);
     animation: fadeIn 0.8s ease-out;
+}
+
+.anh {
+    border-radius: 100%;
+    width: 250px;
+    height: 250px;
 }
 
 .card-icon {
