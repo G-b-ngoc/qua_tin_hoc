@@ -3,7 +3,9 @@
 // ==========================================
 const GIFT_CONFIG = {
     // Câu hỏi mở quà
+    // question: "16 + 03 + 209 + 180 + 109 + 209 + 789 + 289 + 5 = ?",
     question: "16 + 03 + 209 + 180 + 109 + 209 + 789 + 289 + 5 = ?",
+    question: "3000 - 1191 + 8 × 7 - 56 + 144 ÷ 12 - 12 + 25 × 4 - 100 + 360 ÷ 6 - 60 = ?",
     // Mật khẩu đúng (Tự động chuyển thành chữ thường khi so sánh)
     correctPassword: "1809",
     // Link file đính kèm (Có thể thay bằng link Google Drive, Ảnh, Video, File PDF...)
