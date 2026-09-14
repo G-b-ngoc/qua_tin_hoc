@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Món Quà Bí Mật</title>
+    <!-- Font chữ Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- BƯỚC 1: KHÓA BẢO MẬT CÂU HỎI -->
+    <div id="quizCard" class="card">
+        <!-- <div class="card-icon">🔒</div> -->
+        <img src="con_cho.jpg" alt="con_cho" class="card-icon" width="200px">
+        <h2 id="questionTitle">Đang tải câu hỏi...</h2>
+        <p class="subtitle">Không dùng máy tính cầm tay</p>
+
+        <div class="input-group">
+            <input type="text" id="answerInput" placeholder="Nhập câu trả lời của bạn..." autocomplete="off">
+            <div id="errorMessage" class="error-msg">Dốt như bò!</div>
+        </div>
+
+        <button id="submitBtn" class="btn btn-primary">Xác Nhận</button>
+    </div>
+
+    <!-- BƯỚC 2: MỞ HỘP QUÀ 3D -->
+    <div id="giftContainer" class="gift-container hidden">
+        <div class="gift-hint">Nhấn vào hộp quà!</div>
+        <div id="giftBox" class="gift-box">
+            <!-- Nắp hộp quà -->
+            <div class="lid">
+                <div class="ribbon-v"></div>
+                <div class="bow"></div>
+            </div>
+            <!-- Thân hộp quà -->
+            <div class="box-body">
+                <div class="ribbon-v"></div>
+                <div class="ribbon-h"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BƯỚC 3: HIỂN THỊ THIỆP VÀ NÚT TẢI/MỞ FILE -->
+    <div id="secretCard" class="card hidden">
+        <div class="card-icon">🎉</div>
+        <h2 class="gift-title">Dành Cho Bạn</h2>
+        <div class="divider">✦ ✦ ✦</div>
+        <p id="giftMessage" class="gift-message">
+            Chúc mừng bạn đã giải đáp thành công! Hãy nhấn vào nút bên dưới để mở tệp đính kèm.
+        </p>
+
+        <a id="downloadBtn" href="#" target="_blank" class="btn btn-gold">
+            <span class="btn-icon">🎁</span>
+            <span>Mở File Đính Kèm</span>
+        </a>
+    </div>
+
+    <!-- Tải Canvas Confetti cho hiệu ứng pháo hoa khi mở quà -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+/* ==========================================
+   CẤU HÌNH GIAO DIỆN MÀU ĐỎ TRẦM (BURGUNDY)
+   ========================================== */
+:root {
+    --bg-dark: #1a0307;
+    --bg-gradient: radial-gradient(circle at center, #4a0d18 0%, #200409 60%, #0d0104 100%);
+    --card-bg: rgba(45, 10, 18, 0.75);
+    --gold-primary: #d4af37;
+    --gold-light: #f3e5ab;
+    --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --red-accent: #800020;
+    --red-bright: #b31238;
+    --text-color: #fce8eb;
+    --text-muted: #dca8b0;
+    --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.3);
+    --font-heading: 'Dancing Script', cursive;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-dark);
+    background-image: var(--bg-gradient);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Canvas Particles */
+#bgCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Card Container Base */
+.card {
+    position: relative;
+    z-index: 10;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), var(--shadow-gold);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+}
+
+/* Input Styles */
+.input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(15, 3, 6, 0.6);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    outline: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+input[type="text"]:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+    background: rgba(20, 4, 8, 0.8);
+}
+
+.error-msg {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    display: none;
+    animation: shake 0.4s ease-in-out;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--red-bright);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(179, 18, 56, 0.4);
+}
+
+.btn-primary:hover {
+    background: #d41743;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(179, 18, 56, 0.6);
+}
+
+.btn-gold {
+    background: var(--gold-gradient);
+    color: #200409;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.7);
+    filter: brightness(1.1);
+}
+
+/* HỘP QUÀ 3D */
+.gift-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.gift-hint {
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+    animation: pulse 1.8s infinite;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.gift-box {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.gift-box:hover {
+    transform: scale(1.05);
+}
+
+/* Thân hộp quà */
+.box-body {
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(145deg, #800020, #4a0012);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    overflow: hidden;
+}
+
+/* Nắp hộp quà */
+.lid {
+    width: 172px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    left: -6px;
+    background: linear-gradient(145deg, #a30029, #66001a);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    z-index: 2;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Dải nơ */
+.ribbon-v {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 100%;
+    background: var(--gold-gradient);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.ribbon-h {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 30px;
+    background: var(--gold-gradient);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Nơ đỉnh hộp */
+.bow {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 25px;
+}
+
+.bow::before, .bow::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 20px;
+    border-radius: 50% 50% 0 50%;
+    background: var(--gold-gradient);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.bow::before {
+    left: 0;
+    transform: rotate(20deg);
+}
+
+.bow::after {
+    right: 0;
+    transform: scaleX(-1) rotate(20deg);
+}
+
+/* Animate mở hộp quà */
+.gift-box.open .lid {
+    transform: translateY(-120px) rotate(-25deg);
+    opacity: 0;
+}
+
+.gift-box.open {
+    animation: boxPop 0.5s ease-out forwards;
+}
+
+/* Thiệp thông điệp */
+.gift-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--gold-light);
+}
+
+.divider {
+    color: var(--gold-primary);
+    margin: 0.5rem 0 1.2rem 0;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+}
+
+.gift-message {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+/* Utilitie Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.98); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+@keyframes boxPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
