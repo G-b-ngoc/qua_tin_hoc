@@ -8,7 +8,7 @@ const GIFT_CONFIG = {
     // Mật khẩu đúng (Tự động chuyển thành chữ thường khi so sánh)
     correctPassword: "1809",
     // Link file đính kèm (Có thể thay bằng link Google Drive, Ảnh, Video, File PDF...)
-    attachmentUrl: "https://drive.google.com/file/d/1BIhKW9HaQvd2LXOdmD48pb3dJyJqlz0Q/view?usp=sharing", 
+    attachmentUrl: "https://drive.google.com/file/d/1JeCkmap05lh3rvntPODpZi-k6E7vJ2xf/view?usp=sharing", 
     // Lời chúc hiển thị sau khi mở quà
     // message: "Chúc mừng bạn đã mở thành công hộp quà bí mật! Nhấn vào nút bên dưới để nhận món quà được chuẩn bị dành riêng cho bạn."
 };
